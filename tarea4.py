@@ -24,15 +24,15 @@ bits = datos ['bits']
 
 N = 10000 #Numero de bits
 f = 5000 #Frecuencia, en Hz
-T = 1/f #Duracion del periodo de cada simbolo, y por lo tanto el de la onda
+T = 1/f #Duracion del periodo de cada símbolo, y por lo tanto el de la onda
 p_m = 50 #Cantidad de puntos de muestreo
 t_p = np.linspace(0, T, p_m) #Puntos de muestreo en el tiempo 
 
-#Se crea la forma de onda de la portadora, que seria una sinusoidal
+#Se crea la forma de onda de la portadora, que sería una sinusoidal
 seno = np.sin(2*np.pi*f*t_p) 
 
 #Y la graficamos
-t_pg = t_p*1000 #Multiplicamos cada punto del eje del tiempo para que se vea mejor en la grafica
+t_pg = t_p*1000 #Multiplicamos cada punto del eje del tiempo para que se vea mejor en la gráfica
 plt.figure(0)
 plt.title('Señal portadora \n') 
 plt.xlabel('Tiempo [ms]') 
@@ -40,16 +40,16 @@ plt.ylabel('Seno')
 plt.plot(t_pg, seno)
 plt.show() 
 
-#Definimos la frecuencia de muestreo y los puntos en el tiempo para la totalidad de la senal 
+#Definimos la frecuencia de muestreo y los puntos en el tiempo para la totalidad de la señal 
 f_m = p_m/T #Frecuencia de muestreo
 t_total = np.linspace(0, N*T, N*p_m) #Cada punto en el tiempo para cada uno de los bits
 
 #Inicializamos las señales, moduladora y modulada, con ceros 
-s_moduladora = np.zeros(N*p_m) #Senal moduladora, muestra cada uno de los bits que se tienen 
-s_modulada = np.zeros(N*p_m) #Senal modulada, muestra la senal despues de la modulacion
+s_moduladora = np.zeros(N*p_m) #Señal moduladora, muestra cada uno de los bits que se tienen 
+s_modulada = np.zeros(N*p_m) #Señal modulada, muestra la senal después de la modulación
 
 
-#Creamos la senal moduladora, que ilustra los bits, con su amplitud de 1 0 0, según corresponda
+#Creamos la señal moduladora, que ilustra los bits, con su amplitud de 1 0 0, según corresponda
 for i, j in enumerate(bits):
     if j == 1:
         s_moduladora [i*p_m:(i+1)*p_m] = 1
@@ -57,7 +57,7 @@ for i, j in enumerate(bits):
     if j == 0:
         s_moduladora [i*p_m:(i+1)*p_m] = 0
         
-#Visualizamos los 7 primeros bits de la senal moduladora
+#Visualizamos los 7 primeros bits de la señal moduladora
 pb = 7
 plt.figure(1)
 plt.title('Señal moduladora \n') 
@@ -74,7 +74,7 @@ for i, j in enumerate(bits):
     if j == 0:
         s_modulada [i*p_m:(i+1)*p_m] = -seno
         
-#Visualizamos los 7 primeros bits de la senal modulada 
+#Visualizamos los 7 primeros bits de la señal modulada 
 pb = 7
 plt.figure(2)
 plt.title('Señal modulada \n') 
@@ -83,7 +83,7 @@ plt.ylabel('Amplitud')
 plt.plot(s_modulada[0:pb*p_m])
 plt.show() 
 
-#Graficamos lasenales modulada y moduladora juntas 
+#Graficamos las señales modulada y moduladora juntas 
 plt.subplot(2, 1, 1)
 plt.title('Señal moduladora') 
 plt.xlabel('Periodo [en cantidad de puntos]') 
@@ -102,10 +102,10 @@ plt.show()
 # Parte 2: Calcular la potencia promedio de la señal modulada generada.
 
 #La potencia promedio se calcula como de P = 1/2T * integral(x^2) dt 
-#Si no integramos vamos a tener la potencia instantanea, o sea en cada punto, y x en este caso seria cada punto de la senal modulada
+#Si no integramos vamos a tener la potencia instantánea, o sea en cada punto, y x en este caso sería cada punto de la señal modulada
 P_s = (s_modulada)**2 #Potencia instantanea 
 
-#Ahora integramos la potencia instantanea para obtener la potencia promedio
+#Ahora integramos la potencia instantánea para obtener la potencia promedio
 Pprom = integrate.trapz(P_s, t_total) / (N*T) #Potencia promedio
 
 print("La potencia promedio de la señal modulada generada es de ",Pprom, "W \n")
@@ -166,8 +166,7 @@ for i in range(0, 6):
 
 #Parte 5: Demodular y decodificar la señal y hacer un conteo de la tasa 
 #de error de bits (BER, bit error rate) para cada nivel SNR. 
-#Inicialización del vector de bits recibidos
-    
+
 #Se inicializa el vector de los bits recibidos, con el mismo tamaño del vector de bits que queríamos transmitir
     bits_r = np.zeros(bits.shape) #Bits recibidos
     
