@@ -10,7 +10,7 @@ En el archivo bits10k.csv se encuentran 10.000 bits (actualizado) generados a pa
 La modulación BPSK o "Binary Phase Shift Keying", es la modulación por desplazamiento de fase que emplea dos símbolos, con un bit de información cada uno. Esta modulación consiste en enviar una onda sinusoidal, cuando el bit es uno, y enviar una señal sinusoidal inversa, cuando el bit es cero. 
 
 Para resolver esta parte, primero se extrajeron los datos del archivo csv, con ayuda de `pandas`. Además se definieron varias variables, como la frecuencia, periodo, puntos de muestreo, el valor escogido fue de 50, porque con esa cantidad la señal sinusoidal se grafica de buena forma, y además, al haber 10000 bits, si se escogía un valor muy grande el programa podría durar demasiado. 
-En este caso, la señal portadora es de tipo sinusoidal, por lo que se creó esta forma de onda con ayuda de *numpy*, con una frecuencia de <img src="https://latex.codecogs.com/gif.latex?f&space;=&space;5000&space;Hz" title="f = 5000 Hz" />. Esta se muestra en la siguiente figura:
+En este caso, la señal portadora es de tipo sinusoidal, por lo que se creó esta forma de onda con ayuda de `numpy`, con una frecuencia de <img src="https://latex.codecogs.com/gif.latex?f&space;=&space;5000&space;Hz" title="f = 5000 Hz" />. Esta se muestra en la siguiente figura:
 
 <p align="center">
   <img src="https://github.com/stacysc/Tarea4/blob/master/Se%C3%B1al_portadora.png">
@@ -38,7 +38,7 @@ Adicionalmente, se graficaron la señal moduladora y la modulada para poder obse
 </p>
 <p align="center">Comparación entre las señales moduladora y modulada<p align="center">
  
-Como se puede observar, el primer bit es de cero, por lo que la señal modulada empieza con -seno, los siguientes bits son 1, 0, 1, 0, por lo que la señal varía entre seno y -seno, y los bits 6 y 7 corresponden a 1, por lo que la señal es seno durante dos periodos seguidos. En a 
+Como se puede observar, el primer bit es de cero, por lo que la señal modulada empieza con -seno, los siguientes bits son 1, 0, 1, 0, por lo que la señal varía entre seno y -seno, y los bits 6 y 7 corresponden a 1, por lo que la señal es seno durante dos periodos seguidos. En la siguiente tabla se resume el comportamiento obtenido de los primeros siete bits:
 
 | Número de bit  | Valor | Señal modulada | 
 |     :----:     |:----: |    :----:      |
@@ -99,7 +99,7 @@ Seguidamente se calculó el sigma de la señal ruidosa por medio de la raíz cua
 
 > Parte 4: Graficar la densidad espectral de potencia de la señal con el método de Welch (SciPy), antes y después del canal ruidoso.
 
-Para calcular la densidad espectral de potencia de la señal tanto antes como después del canal ruidoso se utilizó la función `signal.welch`, que precisamente calcula la densidad espectral de potencia por medio del método de Welch, el cual realiza una estimación de la densidad} dividiendo los datos en segmentos superpuestos, calcula un periodograma modificado para cada segmento y promedia los periodogramas. 
+Para calcular la densidad espectral de potencia de la señal tanto antes como después del canal ruidoso se utilizó la función `signal.welch`, que precisamente calcula la densidad espectral de potencia por medio del método de Welch, el cual realiza una estimación de la densidad dividiendo los datos en segmentos superpuestos, calcula un periodograma modificado para cada segmento y promedia los periodogramas. 
 
 La gráfica de la densidad espectral de la señal antes del canal ruidoso corresponde a: 
 
@@ -108,7 +108,7 @@ La gráfica de la densidad espectral de la señal antes del canal ruidoso corres
 </p> 
 <p align="center">Densidad espectral de potencia de la señal antes del canal ruidoso<p align="center">
 
-Y como se tienen varias señales ruidosas, entonces se tienen varias densidades espectrales, la gráfica con la superposición de las mismas es:
+Y como se tienen varias señales ruidosas, entonces se tienen varias densidades espectrales después del canal ruidoso, por lo que la gráfica con la superposición de las mismas es:
 
 <p align="center">
   <img src="https://github.com/stacysc/Tarea4/blob/master/Densidad_espectral_despues.png">
