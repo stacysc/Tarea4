@@ -143,7 +143,7 @@ Seguidamente se recorrieron todos los periodos de la energía de la señal ruido
 La gráfica de BER vs SNR se muestra en la siguiente figura:
 
 <p align="center">
-  <img src="https://github.com/stacysc/Tarea4/blob/master/Densidad_espectral_despues.png">
+  <img src="https://github.com/stacysc/Tarea4/blob/master/SNR_vs_BER.png">
 </p> 
 <p align="center">BER vs SNR<p align="center">
 
